@@ -119,10 +119,12 @@ public class Reserva {
 		
 		
 		
-		for(int i=0; i<= salas.get(sala).getAsientos().size() ; i++ ) {
-			
-			System.out.println("Asiento " + (i+1));
-			
+		for (int i = 0; i < salas.get(sala).getAsientos().size(); i++) { 
+		    if (salas.get(sala).getAsientos().get(i).getUsuario() == null) {
+		        System.out.println("Asiento " + (i + 1));
+		    } else {
+		        System.out.println("Asiento " + (i + 1) + " reservado");
+		    }
 		}		
 		
 		System.out.println("Seleccione el asiento por favor ");
@@ -136,9 +138,11 @@ public class Reserva {
 		
 		Optional<Usuario> usuario = usuarios.stream().filter(u -> u.getCedula().equals(cedula)).findFirst();
 		
+		
+		
 		if( usuario.isPresent() ) {
 			salas.get(sala).getAsientos().get(asiento).setUsuario(usuario.get());
-		}{
+		}else{
 			System.out.println("Usuario no registrado");
 		}
 		
