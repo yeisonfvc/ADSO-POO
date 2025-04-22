@@ -141,7 +141,7 @@ public class Reserva {
 		
 		
 		if( usuario.isPresent() ) {
-			salas.get(sala).getAsientos().get(asiento).setUsuario(usuario.get());
+			salas.get(sala).getAsientos().get(asiento -1).setUsuario(usuario.get());
 		}else{
 			System.out.println("Usuario no registrado");
 		}
